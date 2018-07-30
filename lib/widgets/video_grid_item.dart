@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:yyets/models/resource.dart';
 import 'package:yyets/pages/video.dart';
@@ -29,12 +28,11 @@ class VideoGridItem extends StatelessWidget {
                     aspectRatio: 4 / 3,
                     child: Hero(
                       tag: resource.poster,
-                      child: CachedNetworkImage(
+                      child: FadeInImage(
                         fit: BoxFit.cover,
-                        imageUrl: resource.poster,
-                        placeholder: Image.asset(
+                        image: NetworkImage(resource.poster),
+                        placeholder: AssetImage(
                           "assets/images/placeholder.png",
-                          fit: BoxFit.cover,
                         ),
                       ),
                     )),

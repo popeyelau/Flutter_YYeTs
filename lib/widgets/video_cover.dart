@@ -1,6 +1,5 @@
 import 'dart:ui' as ui;
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:yyets/models/video_info.dart';
 import 'package:yyets/widgets/rate_view.dart';
@@ -37,11 +36,10 @@ class VideoCover extends StatelessWidget {
                               elevation: 5.0,
                               child: AspectRatio(
                                   aspectRatio: 3 / 4,
-                                  child: CachedNetworkImage(
-                                      fit: BoxFit.cover,
-                                      imageUrl: poster == ""
-                                          ? resource.poster
-                                          : poster)),
+                                  child: Image.network(
+                                    poster == "" ? resource.poster : poster,
+                                    fit: BoxFit.cover,
+                                  )),
                             ),
                           ),
                           SizedBox(

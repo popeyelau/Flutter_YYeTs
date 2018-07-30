@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
@@ -49,8 +48,10 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
                 });
               },
               child: Stack(alignment: Alignment.center, children: <Widget>[
-                CachedNetworkImage(
-                    fit: BoxFit.cover, imageUrl: widget.placeholder),
+                Image.network(
+                  widget.placeholder,
+                  fit: BoxFit.cover,
+                ),
                 Image(
                   fit: BoxFit.cover,
                   width: 60.0,

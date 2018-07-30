@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:yyets/models/enums.dart';
 import 'package:yyets/widgets/gradient_tag.dart';
@@ -28,7 +27,7 @@ class UserInfoTile extends StatelessWidget {
         : [Colors.blue, Colors.lightBlue.withAlpha(100)];
     List<Widget> children = [
       CircleAvatar(
-        backgroundImage: CachedNetworkImageProvider(avatar),
+        backgroundImage: NetworkImage(avatar),
       ),
       SizedBox(
         width: 8.0,

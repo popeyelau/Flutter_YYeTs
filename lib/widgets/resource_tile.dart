@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:yyets/models/comment.dart';
 
@@ -14,7 +13,7 @@ class ResourceTile extends StatelessWidget {
         leading: Hero(
           tag: resource.poster,
           child: Image(
-            image: CachedNetworkImageProvider(resource.posterS),
+            image: NetworkImage(resource.posterS),
             fit: BoxFit.cover,
             width: 50.0,
             height: 50.0,

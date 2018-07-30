@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:yyets/common/utils.dart';
 import 'package:yyets/models/lib_resource.dart';
@@ -34,7 +33,7 @@ class VideoListTile extends StatelessWidget {
                       fit: BoxFit.contain,
                       image: resource.posterM == null
                           ? AssetImage("assets/images/placeholder.png")
-                          : CachedNetworkImageProvider(resource.posterM),
+                          : NetworkImage(resource.posterM),
                     )),
                   ),
                 ),
