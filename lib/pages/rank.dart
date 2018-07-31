@@ -60,11 +60,11 @@ class _RankPageState extends State<RankPage>
                   vm.isLoading
                       ? Center(child: CircularProgressIndicator())
                       : VideoGridView(resources: vm.ranks.today),
-                  VideoGridView(resources: vm.ranks.month),
-                  VideoGridView(resources: vm.ranks.japan),
-                  VideoGridView(resources: vm.ranks.movie),
-                  VideoGridView(resources: vm.ranks.news),
-                  VideoGridView(resources: vm.ranks.total)
+                  VideoGridView(resources: vm.ranks?.month),
+                  VideoGridView(resources: vm.ranks?.japan),
+                  VideoGridView(resources: vm.ranks?.movie),
+                  VideoGridView(resources: vm.ranks?.news),
+                  VideoGridView(resources: vm.ranks?.total)
                 ],
               );
             }),

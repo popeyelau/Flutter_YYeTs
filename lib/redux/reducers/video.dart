@@ -1,19 +1,18 @@
 import 'package:redux/redux.dart';
 import 'package:yyets/models/help.dart';
-import 'package:yyets/redux/actions/main.dart';
 import 'package:flutter/foundation.dart';
 import 'package:yyets/models/video_comment.dart';
 import 'package:yyets/models/video_info.dart';
+import 'package:yyets/redux/actions/dynamic.dart';
 
 VideoState videoReducer(VideoState state, action) {
-  switch (action.type) {
-    case ReduxActions.updateVideoInfo:
-      return state.copyWith(videoInfo: action.payload);
-    case ReduxActions.updateVideoComments:
-      return state.copyWith(videoComments: action.payload);
-    default:
-      return state;
+  if (action is UpdateVideoInfo) {
+    return state.copyWith(videoInfo: action.payload);
   }
+  if (action is UpdateVideoComments) {
+    return state.copyWith(videoComments: action.payload);
+  }
+  return state;
 }
 
 @immutable

@@ -112,7 +112,7 @@ class Networking {
     final url =
         "http://ios.zmzapi.com/index.php?accesskey=519f9cab85c8059d17544947k361a827&client=1&g=api/v3&m=index&a=hot_keywords";
     var response = await http.get(url);
-    List map = JSON.decode(response.body)["data"];
+    List map = json.decode(response.body)["data"];
     List<Keyword> keywords = map.map((v) => Keyword.fromJson(v)).toList();
     StoreContainer.global.dispatch(UpdateHotKeywords(payload: keywords));
   }
@@ -149,7 +149,7 @@ class Networking {
     final url =
         "http://ios.zmzapi.com/index.php?accesskey=519f9cab85c8059d17544947k361a827&client=1&g=api/v3&m=index&a=resource&id=$id";
     var response = await http.get(url);
-    Map<String, dynamic> map = JSON.decode(response.body)["data"];
+    Map<String, dynamic> map = json.decode(response.body)["data"];
     VideoInfo info = VideoInfo.fromJson(map);
     return info;
   }

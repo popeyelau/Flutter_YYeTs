@@ -3,6 +3,8 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 import 'package:yyets/api/api.dart';
 import 'package:yyets/models/article.dart';
+import 'package:yyets/models/video_info.dart';
+import 'package:yyets/pages/payer.dart';
 import 'package:yyets/redux/actions/dynamic.dart';
 import 'package:yyets/redux/reducers/video.dart';
 import 'package:yyets/widgets/main.dart';
@@ -144,8 +146,18 @@ class _VideoPageState extends State<VideoPage>
                       ? Column(
                           children: vm.seasons
                               .map((v) => SeriesListView(
-                                    season: v,
-                                  ))
+                                  season: v,
+                                  callback: (EpisodeList e) {
+                                    Navigator
+                                        .of(context)
+                                        .push(MaterialPageRoute(
+                                            builder: (context) => PlayerPage(
+                                                  title: "${vm.videoInfo
+                                                      .resourceInfo.cnname} - ${e.episode.padLeft(2, '0')}",
+                                                  cover: vm.videoInfo
+                                                      .resourceInfo.poster,
+                                                )));
+                                  }))
                               .toList())
                       : Container(
                           height: 100.0,

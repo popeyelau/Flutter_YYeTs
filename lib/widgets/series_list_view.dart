@@ -4,8 +4,9 @@ import 'package:yyets/widgets/tag.dart';
 
 class SeriesListView extends StatelessWidget {
   final SeasonList season;
+  final Function callback;
 
-  const SeriesListView({Key key, this.season}) : super(key: key);
+  const SeriesListView({Key key, this.season, this.callback}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,30 +29,34 @@ class SeriesListView extends StatelessWidget {
             shrinkWrap: true,
             itemBuilder: (context, index) {
               final item = season.episodeList[index];
-              final episode = int.parse(item.episode);
-              return Container(
-                  child: Card(
-                elevation: 2.0,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        "${episode < 10 ? "0$episode" : episode}",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18.0),
-                      ),
-                      Text(
-                        item.playTime,
-                        maxLines: 1,
-                        style: TextStyle(fontSize: 10.0),
-                      )
-                    ],
+              return GestureDetector(
+                onTap: () {
+                  callback(item);
+                },
+                child: Container(
+                    child: Card(
+                  elevation: 2.0,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "${item.episode.padLeft(2, '0')}",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 18.0),
+                        ),
+                        Text(
+                          item.playTime,
+                          maxLines: 1,
+                          style: TextStyle(fontSize: 10.0),
+                        )
+                      ],
+                    ),
                   ),
-                ),
-              ));
+                )),
+              );
             },
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 childAspectRatio: 4 / 3,

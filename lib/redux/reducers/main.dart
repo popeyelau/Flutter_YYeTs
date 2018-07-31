@@ -7,9 +7,9 @@ import 'package:yyets/redux/reducers/dynamic.dart' as dynamics;
 import 'package:yyets/redux/reducers/profile.dart' as profile;
 
 ReduxState reduxReducer(ReduxState state, action) => ReduxState(
-    home: home.reducer(state, action),
-    rank: rank.reducer(state, action),
-    lib: lib.reducer(state, action),
-    search: search.reducer(state, action),
-    dynamics: dynamics.reducer(state, action),
-    profile: profile.reducer(state, action));
+    home: home.reducer(state.home, action),
+    rank: rank.reducer(state.rank, action),
+    lib: lib.reducer(state.lib, action),
+    search: search.reducer(state.search, action),
+    dynamics: dynamics.reducer(state.dynamics, action),
+    profile: profile.reducer(state.profile, action));

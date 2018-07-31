@@ -63,9 +63,11 @@ class _HomePageState extends State<HomePage> {
                           children: <Widget>[
                             Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: HomeBanner(
-                                banners: vm.ads,
-                              ),
+                              child: vm.ads.isNotEmpty
+                                  ? HomeBanner(
+                                      banners: vm.ads,
+                                    )
+                                  : Container(),
                             ),
                             SectionTitle(
                               title: "今日播出",
@@ -73,22 +75,26 @@ class _HomePageState extends State<HomePage> {
                             Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 8.0),
-                              child: TodaysBoardcast(
-                                schedules: vm.schedules,
-                              ),
+                              child: vm.schedules.isNotEmpty
+                                  ? TodaysBoardcast(
+                                      schedules: vm.schedules,
+                                    )
+                                  : Container(),
                             ),
                             SectionDivider(),
-                            ListView.builder(
-                              shrinkWrap: true,
-                              physics: ClampingScrollPhysics(),
-                              itemCount: vm.articles.length,
-                              itemBuilder: (context, index) {
-                                return ArticleView(
-                                  vm: ArticleViewModel
-                                      .fromArticle(vm.articles[index]),
-                                );
-                              },
-                            ),
+                            vm.articles.isNotEmpty
+                                ? ListView.builder(
+                                    shrinkWrap: true,
+                                    physics: ClampingScrollPhysics(),
+                                    itemCount: vm.articles.length,
+                                    itemBuilder: (context, index) {
+                                      return ArticleView(
+                                        vm: ArticleViewModel
+                                            .fromArticle(vm.articles[index]),
+                                      );
+                                    },
+                                  )
+                                : Container(),
                           ],
                         ),
                       ));

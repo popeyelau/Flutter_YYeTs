@@ -4,19 +4,16 @@ import 'package:yyets/models/tv_schedule.dart';
 import 'package:yyets/redux/actions/main.dart';
 
 class UpdateTVSchedule extends ActionType {
-  String get type => ReduxActions.updateTVSchedule;
   final List<TVSchedule> payload;
-  UpdateTVSchedule({this.payload});
+  UpdateTVSchedule({this.payload}) : super(payload: payload);
 }
 
 class UpdateArticles extends ActionType {
-  String get type => ReduxActions.updateArticles;
   final List<Article> payload;
-  UpdateArticles({this.payload});
+  UpdateArticles({this.payload}) : super(payload: payload);
 }
 
 class UpdateAds extends ActionType {
-  String get type => ReduxActions.updateAds;
   final List<Ad> payload;
-  UpdateAds({this.payload});
+  UpdateAds({this.payload}) : super(payload: payload);
 }

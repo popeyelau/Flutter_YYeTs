@@ -1,18 +1,18 @@
+import 'package:yyets/redux/actions/home.dart';
 import 'package:yyets/redux/actions/main.dart';
 import 'package:yyets/redux/states/home.dart';
-import 'package:yyets/redux/states/main.dart';
 
-HomeState reducer(ReduxState state, ActionType action) {
-  final HomeState home = state.home;
-
-  switch (action.type) {
-    case ReduxActions.updateTVSchedule:
-      return home.copyWith(schedules: action.payload);
-    case ReduxActions.updateArticles:
-      return home.copyWith(articles: action.payload, isLoading: false);
-    case ReduxActions.updateAds:
-      return home.copyWith(ads: action.payload);
-    default:
-      return home;
+HomeState reducer(HomeState state, ActionType action) {
+  if (action is UpdateTVSchedule) {
+    return state.copyWith(schedules: action.payload);
   }
+
+  if (action is UpdateArticles) {
+    return state.copyWith(articles: action.payload, isLoading: false);
+  }
+
+  if (action is UpdateAds) {
+    return state.copyWith(ads: action.payload);
+  }
+  return state;
 }

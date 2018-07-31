@@ -5,25 +5,21 @@ import 'package:yyets/models/video_info.dart';
 import 'package:yyets/redux/actions/main.dart';
 
 class UpdateComments extends ActionType {
-  String get type => ReduxActions.updateComments;
   final List<Comment> payload;
-  UpdateComments({this.payload});
+  UpdateComments({this.payload}) : super(payload: payload);
 }
 
 class UpdateHelps extends ActionType {
-  String get type => ReduxActions.updateHelps;
   final List<Help> payload;
-  UpdateHelps({this.payload});
+  UpdateHelps({this.payload}) : super(payload: payload);
 }
 
 class UpdateVideoInfo extends ActionType {
-  String get type => ReduxActions.updateVideoInfo;
   final VideoInfo payload;
-  UpdateVideoInfo({this.payload});
+  UpdateVideoInfo({this.payload}) : super(payload: payload);
 }
 
 class UpdateVideoComments extends ActionType {
-  String get type => ReduxActions.updateVideoComments;
   final List<VideoComment> payload;
-  UpdateVideoComments({this.payload});
+  UpdateVideoComments({this.payload}) : super(payload: payload);
 }
