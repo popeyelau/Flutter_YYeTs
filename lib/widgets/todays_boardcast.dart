@@ -58,7 +58,8 @@ class TodaysBoardcast extends StatelessWidget {
                       style: TextStyle(fontSize: 12.0),
                     ),
                     backgroundColor: Colors.black.withAlpha(120),
-                    subtitle: Text("S${item.season}E${item.episode}",
+                    subtitle: Text(
+                        "S${item.season.padLeft(2, '0')}E${item.episode.padLeft(2, '0')}",
                         style: TextStyle(color: Colors.white, fontSize: 12.0)),
                   ),
                 ),

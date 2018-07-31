@@ -2,6 +2,10 @@
 
 Flutter 人人影视
 
+> 项目在 Flutter dev channel 编译运行
+
+$ `flutter channel dev`
+
 ## 截图
 ![](http://o99h5opr1.bkt.clouddn.com/%E9%A6%96%E9%A1%B5.png)
 

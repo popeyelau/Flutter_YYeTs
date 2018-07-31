@@ -16,15 +16,21 @@ class Tag extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
-      decoration: BoxDecoration(
-          color: backgroudColor,
-          borderRadius: BorderRadius.circular(20.0),
-          border: border ? Border.all(color: color) : null),
-      child: Text(
-        text,
-        style: TextStyle(fontSize: 10.0, color: color),
+    return ConstrainedBox(
+      constraints: BoxConstraints(maxWidth: 120.0),
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+        decoration: BoxDecoration(
+            color: backgroudColor,
+            borderRadius: BorderRadius.circular(20.0),
+            border: border ? Border.all(color: color) : null),
+        child: Text(
+          text,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          textAlign: TextAlign.center,
+          style: TextStyle(fontSize: 10.0, color: color),
+        ),
       ),
     );
   }
