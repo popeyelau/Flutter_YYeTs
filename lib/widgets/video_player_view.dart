@@ -27,7 +27,8 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
   Widget build(BuildContext context) {
     return Container(
       child: playing
-          ? ChewieController(
+          ? Chewie(
+              controller: ChewieController(
               videoPlayerController: controller,
               showControls: playing,
               aspectRatio: 16 / 9,
@@ -39,7 +40,7 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
                         fit: BoxFit.cover,
                         image: NetworkImage(widget.placeholder))),
               ),
-            )
+            ))
           : GestureDetector(
               onTap: () {
                 setState(() {
