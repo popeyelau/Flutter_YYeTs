@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
+import 'package:photo_view/photo_view_gallery.dart';
 
 class PhotoBrowser extends StatelessWidget {
   final List<String> imageUrls;
@@ -11,18 +12,23 @@ class PhotoBrowser extends StatelessWidget {
   Widget build(BuildContext context) {
     PageController controller = PageController(initialPage: index);
     return Container(
-      child: PageView(
-        controller: controller,
-        children: imageUrls
-            .map((v) => GestureDetector(
-                  onTap: () => Navigator.of(context).pop(),
-                  child: PhotoView(
-                    imageProvider: NetworkImage(v),
-                    minScale: 1.0,
-                    loadingChild: Container(),
-                  ),
-                ))
-            .toList(),
+      color: Colors.black12,
+      child: Dismissible(
+        direction: DismissDirection.down,
+        onDismissed: (_) => Navigator.of(context).pop(),
+        child: PhotoViewGallery(
+          backgroundDecoration: BoxDecoration(
+            color: Colors.black26,
+          ),
+          pageController: controller,
+          pageOptions: imageUrls
+              .map((url) => PhotoViewGalleryPageOptions(
+                    imageProvider: NetworkImage(url),
+                    initialScale: PhotoViewComputedScale.contained,
+                  ))
+              .toList(),
+        ),
+        key: Key("gallery"),
       ),
     );
   }
