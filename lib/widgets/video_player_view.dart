@@ -27,8 +27,8 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
   Widget build(BuildContext context) {
     return Container(
       child: playing
-          ? Chewie(
-              controller,
+          ? ChewieController(
+              videoPlayerController: controller,
               showControls: playing,
               aspectRatio: 16 / 9,
               autoPlay: playing,
