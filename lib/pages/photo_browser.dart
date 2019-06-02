@@ -17,7 +17,7 @@ class PhotoBrowser extends StatelessWidget {
         direction: DismissDirection.down,
         onDismissed: (_) => Navigator.of(context).pop(),
         child: PhotoViewGallery(
-          backgroundColor: Colors.black26,
+          // backgroundColor: Colors.black26,
           pageController: controller,
           pageOptions: imageUrls
               .map((url) => PhotoViewGalleryPageOptions(
