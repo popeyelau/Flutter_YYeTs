@@ -20,3 +20,6 @@ $ `flutter channel dev`
 [Flutter中文网](https://flutterchina.club/)
 
 [Flutter 跨平台移动应用开发实战](https://flutter-app-in-action.netlify.com/#/get-start)
+
+[![Powered by DartNode](https://dartnode.com/branding/DN-Open-Source-sm.png)](https://dartnode.com "Powered by DartNode - Free VPS for Open Source")
+
